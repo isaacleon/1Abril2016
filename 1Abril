@@ -1,0 +1,25 @@
+install.packages("fpp")
+require (fpp)
+plot (window(elec,start=1980),ylab="GWh", xlab="Year", main="Australian electricity production")
+#Estacionalida, tendencia y no ciclico
+plot(bricksq, ylab="million units", xlab="Year", main="Australian clay brick production")
+#estac y ciclico, no mucho tendencia
+plot(hsales, main="Sales of new one-family houses, USA", ylab="Total sales", xlab="Year")
+#no estac, no tendenia, posible ciclico
+
+#######################################################################################
+
+ica<- read.csv(("C:\\Users\\SALA-C22\\Downloads\\table (2).csv"), header=T,)
+icast <- ts(ica[,5], start=2000, frequency = 12)
+plot (icast, main="Valor acciones de ICA", ylab="Valor Cierre", xlab="Año",col="deepskyblue4")
+#no es ciclica, presentó estabilidad hasta el 2008 y subió bastante,pero a partir de que bajo en el 2010 ha tenido una tendencia de estabilidad, no presenta signos de estacionalidad
+alfa<- read.csv(("C:\\Users\\SALA-C22\\Downloads\\table (4).csv"), header=T)
+alfast <- ts(alfa[,5], start=2000, frequency = 12)
+plot (alfast, main="Valor acciones de ALFA", ylab="Valor Cierre", xlab="Año",col="deepskyblue4")
+#no es ciclica ni presenta estacionalidad, por periodos resulta estable a exepcion del 2004 donde subio mucho para bajar gradualmente , ahora presenta un ligero aumento del año pasado a este
+kofl<- read.csv(("C:\\Users\\SALA-C22\\Downloads\\table (3).csv"), header=T)
+koflst <- ts(kofl[,5], start=2000, frequency = 12)
+plot (koflst, main="Valor acciones de KOFL", ylab="Valor Cierre", xlab="Año",col="deepskyblue4")
+#no es ciclica ni estacionaria, pero en cuestion de tendencia ha decrecido de manera constante desde antes del 2005 cada año decreciendo mas sin presentar aumentos considerables en ningun año
+
+#En resumen en la que jamas invertiria es en KOFL ya que no ha crecido desde el 2003, sino decrecido, invertiría en ALFA ya que presenta signos de crecimiento y es de las tres empresas la mas estable
