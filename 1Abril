@@ -21,5 +21,8 @@ kofl<- read.csv(("C:\\Users\\SALA-C22\\Downloads\\table (3).csv"), header=T)
 koflst <- ts(kofl[,5], start=2000, frequency = 12)
 plot (koflst, main="Valor acciones de KOFL", ylab="Valor Cierre", xlab="Año",col="deepskyblue4")
 #no es ciclica ni estacionaria, pero en cuestion de tendencia ha decrecido de manera constante desde antes del 2005 cada año decreciendo mas sin presentar aumentos considerables en ningun año
-
+completa <- ts.intersect(icast,alfast,koflst)
+plot (completa, main="Valor de las acciones", ylab="Valor cierre")
+pdf(file="completa.pdf")
+dev.off()
 #En resumen en la que jamas invertiria es en KOFL ya que no ha crecido desde el 2003, sino decrecido, invertiría en ALFA ya que presenta signos de crecimiento y es de las tres empresas la mas estable
